@@ -1,0 +1,21 @@
+#spp-mark.marked {
+    background: linear-gradient(to top, rgb(184 184 184), rgb(188 188 188));
+    opacity: 0.4;
+}
+
+#spp-mark {
+    background: linear-gradient(to top, #313131, #000000);
+    color: white;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    border-radius: 1px;
+    width: 30px;
+    padding: 10px;
+    opacity: 0.8;
+    cursor: pointer;
+    display: block;
+    position: fixed;
+    z-index: 999;
+    overflow-wrap: break-word;
+}

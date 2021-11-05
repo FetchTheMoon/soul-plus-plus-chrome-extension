@@ -1,0 +1,44 @@
+body {
+    background: #252626 !important;
+    color: #eae5d1 !important;
+}
+
+#toptool *,
+#wrapA *,
+#footer * {
+    background: #252626;
+    color: #eae5d1;
+}
+
+#breadcrumbs,
+#infobox,
+#smiliebox,
+#wy_htmlmode,
+#wy_windcode,
+#editor-tool,
+#editor-tab,
+#editor-content {
+    background: #252626;
+    color: #eae5d1;
+}
+
+
+/*#editor-button span{*/
+/*    background: url(images/post/c_editor/editor-icon.gif) !important;*/
+/*    filter: invert(1);*/
+/*}*/
+
+.tr3 td,
+.tr3 th,
+.t5.t2 {
+    border: none !important;
+    border-top: #858585 1px solid !important;
+}
+
+.t {
+    border: none !important;
+}
+
+.t5.t2 .tpc_content .quote.jumbotron > .btn.btn-danger.spp-buy-refresh-free {
+    background: linear-gradient(to top, rgb(189, 76, 76), rgb(251, 153, 4)) !important
+}

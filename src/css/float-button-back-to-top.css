@@ -1,0 +1,15 @@
+#spp-back-to-top {
+    font-weight: bold;
+    outline: none;
+    border: none;
+    border-radius: 1px;
+    width: 30px;
+    padding: 10px;
+    opacity: 0.8;
+    cursor: pointer;
+    display: block;
+    position: fixed;
+    z-index: 999;
+    overflow-wrap: break-word;
+    text-align: center;
+}

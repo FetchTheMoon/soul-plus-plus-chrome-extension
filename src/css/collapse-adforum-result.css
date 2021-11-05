@@ -1,0 +1,12 @@
+.spp-adforum-result {
+    background: #bebebe !important;
+}
+
+.spp-adforum-result a:hover {
+    color: #cb0000 !important;
+}
+
+
+.spp-hide {
+    display: none;
+}

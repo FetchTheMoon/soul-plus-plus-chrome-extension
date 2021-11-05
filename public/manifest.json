@@ -1,0 +1,58 @@
+{
+  "name": "Soul++",
+  "description": "提升魂+论坛的使用体验",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": [
+        "https://*.spring-plus.net/*",
+        "https://*.summer-plus.net/*",
+        "https://*.soul-plus.net/*",
+        "https://*.south-plus.net/*",
+        "https://*.north-plus.net/*",
+        "https://*.snow-plus.net/*",
+        "https://*.level-plus.net/*",
+        "https://*.white-plus.net/*",
+        "https://*.imoutolove.me/*",
+        "https://*.south-plus.org/*",
+        "https://spring-plus.net/*",
+        "https://summer-plus.net/*",
+        "https://soul-plus.net/*",
+        "https://south-plus.net/*",
+        "https://north-plus.net/*",
+        "https://snow-plus.net/*",
+        "https://level-plus.net/*",
+        "https://white-plus.net/*",
+        "https://imoutolove.me/*",
+        "https://south-plus.org/*"
+      ],
+      "js": [
+        "js/content_script.js"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "icon/16.png",
+    "32": "icon/32.png",
+    "64": "icon/64.png",
+    "48": "icon/48.png",
+    "128": "icon/128.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "unlimitedStorage",
+    "contextMenus",
+    "tabs",
+    "alarms",
+    "notifications"
+  ]
+}
