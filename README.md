@@ -2,7 +2,7 @@
 
 提升魂+论坛使用体验
 
-[TG群](https://t.me/joinchat/WUOTQwzPwvo4MDQx)
+[TG群](https://t.me/joinchat/pHRL19h_vCY5MmFh)
 
 ## 功能
 - 免刷新
