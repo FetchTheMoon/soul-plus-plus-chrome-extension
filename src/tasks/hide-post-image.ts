@@ -15,6 +15,8 @@ export default async function TASK_HidePostImage(item: HTMLElement | Document) {
     const loadImageOnDemand = await getItem('Switch::load-image-on-demand', false);
     imgs.forEach((img) => {
         const $img = $(img);
+        // 避免重复处理
+        if ($img.parent().hasClass('spp-img-mask')) return;
         // 如果不是帖子内容里的图片, 告辞
         if (!$img.closest(Selector.POST_CONTENT).length) return;
         // 避免屏蔽了表情
@@ -23,8 +25,6 @@ export default async function TASK_HidePostImage(item: HTMLElement | Document) {
         if ($img.attr('src')?.includes('images/colorImagination/file')) return;
         // 如果图片的父元素是A标签，去掉它
         if ($img.parent().prop('tagName') === 'A') $img.parent().replaceWith($img);
-        // 避免重复处理
-        if ($img.parent().hasClass('spp-img-mask')) return;
 
         // 隐藏图片
         // console.info(`开始隐藏帖子图片`);
