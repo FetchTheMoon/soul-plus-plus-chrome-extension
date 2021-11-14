@@ -43,12 +43,12 @@ export default [
 
 
     // 样式
-    await new Category('样式', 'theme', ColorLensIcon, [
-        await new Switch('暗黑模式', 'dark-mode').init(),
-    ]).init(),
+    // await new Category('样式', 'theme', ColorLensIcon, [
+    // ]).init(),
 
     // 其它
     await new Category('其它', 'misc', MiscellaneousServicesIcon, [
+        await new Switch('暗黑模式', 'dark-mode').init(),
         await new Switch('开启Mark++', 'mark-checker').init(),
         await new Switch('自动领取和完成论坛任务', 'task-bot').init(),
         await new Switch('标记已阅读过的帖子', 'highlight-viewed-thread').init(),
