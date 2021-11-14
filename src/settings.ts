@@ -1,5 +1,4 @@
 import { Button, Category, Input, Switch } from '@/controls/menu';
-import ColorLensIcon from '@mui/icons-material/ColorLens';
 import SyncDisabledIcon from '@mui/icons-material/SyncDisabled';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
@@ -52,6 +51,7 @@ export default [
         await new Switch('开启Mark++', 'mark-checker').init(),
         await new Switch('自动领取和完成论坛任务', 'task-bot').init(),
         await new Switch('标记已阅读过的帖子', 'highlight-viewed-thread').init(),
+        await new Switch('给[回复/引用]增加跳转链接', 'link-to-replied').init(),
         await new Switch('折叠网赚区搜索结果', 'collapse-adforum-result').init(),
         await new Switch('域名跳转', 'domain-redirect').init(),
         await new Input(

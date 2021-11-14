@@ -24,6 +24,7 @@ if (await getItem('Switch::dark-mode')) TASK_DarkMode();
 
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOMContentLoaded');
+    if (await getItem('Switch::link-to-replied')) TASK_LinkToReplied(document);
     if (await getItem('Switch::buy-refresh-free')) TASK_BuyRefreshFree();
     if (await getItem('Switch::infinite-scroll-post')) TASK_InfiniteScrollPost();
     if (await getItem('Switch::infinite-scroll-thread')) TASK_InfiniteScrollThread();
