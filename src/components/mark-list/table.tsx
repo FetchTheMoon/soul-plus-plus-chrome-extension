@@ -16,7 +16,7 @@ import {
     TableHead,
     TableRow,
 } from '@mui/material';
-import MarkListManager, { MarkedThreadInfo, MarkList, OFFER_STAGE } from '@/utilities/mark-list';
+import MarkListManager, { IMarkedThreadInfo, IMarkList, OFFER_STAGE } from '@/controls/mark-list';
 import { useRequest } from 'ahooks';
 import TimeAgo from '@/utilities/time-ago';
 import AddIcon from '@mui/icons-material/Add';
@@ -27,14 +27,14 @@ import FlashOnIcon from '@mui/icons-material/FlashOn';
 import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
 import LanguageIcon from '@mui/icons-material/Language';
 
-interface TableProps {
+interface ITableProps {
     domain: string;
 }
 
-interface RowProps {
+interface IRowProps {
     domain: string;
     key: number;
-    row: MarkedThreadInfo;
+    row: IMarkedThreadInfo;
 }
 
 function ResourceCell(props: { icon: OverridableComponent<SvgIconTypeMap>, name: string, domain: string, resource: any[] }) {
@@ -73,7 +73,7 @@ function ResourceCell(props: { icon: OverridableComponent<SvgIconTypeMap>, name:
 }
 
 
-function CollapseSubTable(props: RowProps) {
+function CollapseSubTable(props: IRowProps) {
 
     return (
         <Box sx={ { display: 'grid', gridTemplateColumns: '25% 25% 25% 25%' } }>
@@ -87,7 +87,7 @@ function CollapseSubTable(props: RowProps) {
 
 }
 
-function CollapseRow(props: RowProps) {
+function CollapseRow(props: IRowProps) {
     const [open, setOpen] = React.useState(false);
     return (
         <>
@@ -151,7 +151,7 @@ function CollapseRow(props: RowProps) {
     );
 }
 
-export default function (props: TableProps) {
+export default function (props: ITableProps) {
     const { data } = useRequest(MarkListManager.getMarkList, {
         initialData: {},
         pollingInterval: 1000,
@@ -180,7 +180,7 @@ export default function (props: TableProps) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        { Object.values(data as MarkList).reverse().map((v, i) => {
+                        { Object.values(data as IMarkList).reverse().map((v, i) => {
                             return <CollapseRow row={ v } key={ v.markTime } domain={ props.domain }/>;
                         }) }
                     </TableBody>

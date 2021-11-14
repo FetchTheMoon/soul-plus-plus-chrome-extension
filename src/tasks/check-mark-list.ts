@@ -1,4 +1,4 @@
-import MarkListManager, { MarkedThreadInfo, OFFER_STAGE } from '@/utilities/mark-list';
+import MarkListManager, { IMarkedThreadInfo, OFFER_STAGE } from '@/controls/mark-list';
 import { getDocument } from '@/utilities/requests';
 import { getThreadInfo, Selector } from '@/utilities/forum';
 import { extract, extractAll, sleep } from '@/utilities/misc';
@@ -13,7 +13,7 @@ async function markChecker() {
     try {
 
         const domain = await getItem('GlobalData::domain');
-        const markList: MarkedThreadInfo[] = Object.values(await MarkListManager.getMarkList());
+        const markList: IMarkedThreadInfo[] = Object.values(await MarkListManager.getMarkList());
 
         console.log('markList:', markList);
 

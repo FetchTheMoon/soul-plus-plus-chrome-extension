@@ -2,7 +2,7 @@ import { addStyle } from '@/utilities/misc';
 import markCSS from '@/css/float-button-mark.css';
 import { getThreadInfo } from '@/utilities/forum';
 import createDraggableButton from '@/utilities/draggable-button';
-import MarkListManager, { OFFER_STAGE } from '@/utilities/mark-list';
+import MarkListManager, { OFFER_STAGE } from '@/controls/mark-list';
 
 export default async function MarkButton() {
 
