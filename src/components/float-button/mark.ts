@@ -4,8 +4,9 @@ import { getThreadInfo } from '@/utilities/forum';
 import createDraggableButton from '@/utilities/draggable-button';
 import MarkListManager, { OFFER_STAGE } from '@/utilities/mark-list';
 
-export default async function Mark() {
+export default async function MarkButton() {
 
+    if (!document.URL.includes('/read.php')) return;
     addStyle(markCSS, 'mark-button-css');
     const threadInfo = getThreadInfo();
     if (!threadInfo) return;

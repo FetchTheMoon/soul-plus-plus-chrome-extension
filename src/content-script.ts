@@ -10,8 +10,10 @@ import TASK_InfiniteScrollPicWall from '@/tasks/infinite-scroll-pic-wall';
 import TASK_CollapseAdforumResult from '@/tasks/collapse-adforum-result';
 import TASK_TaskBot from '@/tasks/task-bot';
 import BackToTop from '@/components/float-button/back-to-top';
-import Mark from '@/components/float-button/mark';
+import MarkButton from '@/components/float-button/mark';
 
+
+import TASK_LinkToReplied from '@/tasks/link-to-replied';
 // 由于插件的弹出页面位于插件的路径下, 无法使用相对路径访问论坛页面, 所以记录一下
 setItem('GlobalData::domain', window.location.hostname);
 
@@ -29,7 +31,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (await getItem('Switch::infinite-scroll-pic-wall')) TASK_InfiniteScrollPicWall();
     if (await getItem('Switch::collapse-adforum-result')) TASK_CollapseAdforumResult();
     if (await getItem('Switch::task-bot')) TASK_TaskBot();
-    if (await getItem('Switch::mark-checker')) Mark();
+    if (await getItem('Switch::mark-checker')) MarkButton();
     BackToTop();
 });
 
