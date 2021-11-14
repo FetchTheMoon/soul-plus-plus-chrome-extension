@@ -28,6 +28,8 @@ export enum Selector {
     OFFER_STAGE = '.tips .s3',
     SELL = '.quote.jumbotron',
     HYPER_LINK_IN_POST = '.tpc_content a',
+    QUOTE = '.t5.t2 h6.quote2+div',
+    REPLY = '.t5.t2 .h1.fl>.fl',
 
 
 }

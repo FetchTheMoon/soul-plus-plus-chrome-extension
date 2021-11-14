@@ -1,6 +1,7 @@
 import TASK_HidePostImage from '@/tasks/hide-post-image';
 import TASK_ReplaceUserAvatar from '@/tasks/replace-user-avatar';
 import TASK_HideForumRuleImage from '@/tasks/hide-forum-rule-image';
+import TASK_LinkToReplied from '@/tasks/link-to-replied';
 
 export default async function MutationObserverProcess(
     options = {
@@ -28,6 +29,9 @@ export default async function MutationObserverProcess(
             TASK_HidePostImage(node as HTMLElement);
             TASK_ReplaceUserAvatar(node as HTMLElement);
             TASK_HideForumRuleImage(node as HTMLElement);
+        }
+        if ((node as HTMLElement).tagName === 'A') {
+            TASK_LinkToReplied(node as HTMLElement);
         }
 
     }
