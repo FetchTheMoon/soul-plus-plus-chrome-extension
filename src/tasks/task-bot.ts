@@ -10,6 +10,7 @@ import NotyfCss from 'notyf/notyf.min.css';
 const key = 'FunctionData::task-bot';
 
 export default async function TASK_TaskBot() {
+    if (!await getItem('Switch::task-bot')) return;
     const notyfInstance: Notyf = new Notyf();
     if ($(Selector.LOGIN_FORM).length) {
         console.log(`尚未登录，不接任务`);

@@ -3,6 +3,7 @@ import { getItem } from '@/utilities/storage';
 
 
 export default async function TASK_DomainRedirect() {
+    if (!await getItem('Switch::domain-redirect')) return;
     const domain = getHostname(await getItem('Input::domain'));
     if (!domain) return;
     if (window.location.hostname !== domain

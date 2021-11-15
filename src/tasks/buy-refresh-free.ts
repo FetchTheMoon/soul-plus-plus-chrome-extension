@@ -7,11 +7,13 @@ import $ from 'jquery';
 import NotyfCss from 'notyf/notyf.min.css';
 import TASK_HidePostImage from '@/tasks/hide-post-image';
 import TASK_ReplaceUserAvatar from '@/tasks/replace-user-avatar';
+import { getItem } from '@/utilities/storage';
 
 
 let notyfInstance: Notyf;
 
-export default function TASK_BuyRefreshFree(doc: Document = document) {
+export default async function TASK_BuyRefreshFree(doc: Document = document) {
+    if (!await getItem('Switch::buy-refresh-free')) return;
     if (!document.URL.includes('/read.php')) return;
     // console.info(`开始处理购买按钮`);
     addStyle(NotyfCss, 'notyf-css');

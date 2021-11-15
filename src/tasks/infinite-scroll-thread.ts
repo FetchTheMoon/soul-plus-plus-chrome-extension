@@ -1,7 +1,9 @@
 import { getForumInfo, Selector } from '@/utilities/forum';
 import InfiniteScroll from '@/tasks/infinite-scroll';
+import { getItem } from '@/utilities/storage';
 
-export default function TASK_InfiniteScrollThread() {
+export default async function TASK_InfiniteScrollThread() {
+    if (!await getItem('Switch::infinite-scroll-thread')) return;
     if (!document.URL.includes('/thread.php')) return;
     const ThreadDetail = getForumInfo();
     if (!ThreadDetail) return;

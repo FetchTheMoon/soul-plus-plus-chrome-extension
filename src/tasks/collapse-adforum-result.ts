@@ -2,8 +2,10 @@ import $ from 'jquery';
 import { Selector } from '@/utilities/forum';
 import CollapseAdforumResultCSS from '@/css/collapse-adforum-result.css';
 import { addStyle } from '@/utilities/misc';
+import { getItem } from '@/utilities/storage';
 
-export default function TASK_CollapseAdforumResult(doc = document) {
+export default async function TASK_CollapseAdforumResult(doc = document) {
+    if (!await getItem('Switch::collapse-adforum-result')) return;
     if (!document.URL.includes('/search.php?')) return;
     console.log('开始折叠网赚区结果');
     addStyle(CollapseAdforumResultCSS, 'collapse-adforum-result-css');

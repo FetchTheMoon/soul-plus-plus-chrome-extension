@@ -1,8 +1,10 @@
 import { getForumInfo, Selector } from '@/utilities/forum';
 import InfiniteScroll from '@/tasks/infinite-scroll';
 import $ from 'jquery';
+import { getItem } from '@/utilities/storage';
 
-export default function TASK_InfiniteScrollPicWall() {
+export default async function TASK_InfiniteScrollPicWall() {
+    if (await getItem('Switch::infinite-scroll-pic-wall')) return;
     if (!document.URL.includes('/thread_new.php')) return;
     const ThreadDetail = getForumInfo();
     if (!ThreadDetail) return;

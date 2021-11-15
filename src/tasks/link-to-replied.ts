@@ -3,7 +3,7 @@ import $ from 'jquery';
 import { getThreadInfo, Selector } from '@/utilities/forum';
 import { extract } from '@/utilities/misc';
 
-export default async function TASK_LinkToReplied(item: HTMLElement | Document) {
+export default async function TASK_LinkToReplied(item: HTMLElement | Document = document) {
     if (!await getItem('Switch::link-to-replied')) return;
     if (!document.URL.includes('/read.php')) return;
     if (item instanceof HTMLElement) {

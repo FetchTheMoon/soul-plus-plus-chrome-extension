@@ -1,7 +1,9 @@
 import { getThreadInfo, Selector } from '@/utilities/forum';
 import InfiniteScroll from '@/tasks/infinite-scroll';
+import { getItem } from '@/utilities/storage';
 
-export default function TASK_InfiniteScrollPost() {
+export default async function TASK_InfiniteScrollPost() {
+    if (!await getItem('Switch::infinite-scroll-post')) return;
     if (!document.URL.includes('/read.php')) return;
 
     const postInfo = getThreadInfo();

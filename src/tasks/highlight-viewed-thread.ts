@@ -3,8 +3,10 @@ import { getForumInfo, getThreadInfo, Selector } from '@/utilities/forum';
 import $ from 'jquery';
 import { addStyle, extract } from '@/utilities/misc';
 import highLightViewedThreadCSS from '@/css/highlight-viewed-thread.css';
+import { getItem } from '@/utilities/storage';
 
 export default async function TASK_HighlightViewedThread() {
+    if (!await getItem('Switch::highlight-viewed-thread')) return;
     addStyle(highLightViewedThreadCSS, 'highlight-viewed-thread');
     if (document.URL.includes('/read.php')) {
         const t = getThreadInfo();

@@ -2,7 +2,7 @@ import MutationObserverProcess from '@/utilities/mutation-observer';
 import TASK_DarkMode from '@/tasks/dark-mode';
 import TASK_BuyRefreshFree from '@/tasks/buy-refresh-free';
 import TASK_DomainRedirect from '@/tasks/domain-redirect';
-import { getItem, setItem } from '@/utilities/storage';
+import { setItem } from '@/utilities/storage';
 import TASK_InfiniteScrollPost from '@/tasks/infinite-scroll-post';
 import TASK_InfiniteScrollThread from '@/tasks/infinite-scroll-thread';
 import TASK_InfiniteScrollSearchResult from '@/tasks/infinite-scroll-search';
@@ -20,21 +20,21 @@ setItem('GlobalData::domain', window.location.hostname);
 
 MutationObserverProcess();
 
-if (await getItem('Switch::domain-redirect')) TASK_DomainRedirect();
-if (await getItem('Switch::dark-mode')) TASK_DarkMode();
+TASK_DomainRedirect();
+TASK_DarkMode();
 
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOMContentLoaded');
-    if (await getItem('Switch::link-to-replied')) TASK_LinkToReplied(document);
-    if (await getItem('Switch::buy-refresh-free')) TASK_BuyRefreshFree();
-    if (await getItem('Switch::infinite-scroll-post')) TASK_InfiniteScrollPost();
-    if (await getItem('Switch::infinite-scroll-thread')) TASK_InfiniteScrollThread();
-    if (await getItem('Switch::infinite-scroll-search-result')) TASK_InfiniteScrollSearchResult();
-    if (await getItem('Switch::infinite-scroll-pic-wall')) TASK_InfiniteScrollPicWall();
-    if (await getItem('Switch::collapse-adforum-result')) TASK_CollapseAdforumResult();
-    if (await getItem('Switch::mark-checker')) TASK_HighlightViewedThread();
-    if (await getItem('Switch::task-bot')) TASK_TaskBot();
-    if (await getItem('Switch::mark-checker')) MarkButton();
+    TASK_LinkToReplied();
+    TASK_BuyRefreshFree();
+    TASK_InfiniteScrollPost();
+    TASK_InfiniteScrollThread();
+    TASK_InfiniteScrollSearchResult();
+    TASK_InfiniteScrollPicWall();
+    TASK_CollapseAdforumResult();
+    TASK_HighlightViewedThread();
+    TASK_TaskBot();
+    MarkButton();
     BackToTop();
 });
 

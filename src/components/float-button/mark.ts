@@ -3,9 +3,10 @@ import markCSS from '@/css/float-button-mark.css';
 import { getThreadInfo } from '@/utilities/forum';
 import createDraggableButton from '@/utilities/draggable-button';
 import MarkListManager, { OFFER_STAGE } from '@/controls/mark-list';
+import { getItem } from '@/utilities/storage';
 
 export default async function MarkButton() {
-
+    if (!await getItem('Switch::mark-checker')) return;
     if (!document.URL.includes('/read.php')) return;
     addStyle(markCSS, 'mark-button-css');
     const threadInfo = getThreadInfo();
