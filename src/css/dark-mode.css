@@ -42,3 +42,13 @@ body {
 .t5.t2 .tpc_content .quote.jumbotron > .btn.btn-danger.spp-buy-refresh-free {
     background: linear-gradient(to top, rgb(189, 76, 76), rgb(251, 153, 4)) !important
 }
+
+a.spp-viewed-thread {
+    color: #686868 !important;
+}
+
+.spp-last-viewed-thread a {
+    color: #195572 !important;
+    font-style: italic;
+    font-weight: bold;
+}
