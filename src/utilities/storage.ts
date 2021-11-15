@@ -16,3 +16,11 @@ export async function getItem(key?: string, defaultValue?: any, sType: StorageTy
 export function clearItems(sType: StorageType = 'sync') {
     chrome.storage[sType].clear();
 }
+
+export async function getAllItems() {
+    const sync = await getItem(undefined, undefined, 'sync');
+    const local = await getItem(undefined, undefined, 'local');
+
+    return { sync, local };
+
+}

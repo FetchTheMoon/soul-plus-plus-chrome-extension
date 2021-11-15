@@ -1,4 +1,4 @@
-import { Button, Category, Input, Switch } from '@/controls/menu';
+import { Button, Category, Input, Switch, UploadButton } from '@/controls/menu';
 import SyncDisabledIcon from '@mui/icons-material/SyncDisabled';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
@@ -72,7 +72,7 @@ export default [
     // 调试
     new Category('调试', 'debug', BugReportIcon, [
         new Button('导出设置', 'export-settings', ExportSettings, 'secondary'),
-        new Button('导入设置', 'import-settings', ImportSettings, 'success'),
+        new UploadButton('导入设置', 'import-settings', ImportSettings, 'success'),
         // await new Button('TEST', 'test', test, 'success'),
         new Button('清空设置', 'clear-settings', ClearSettings, 'error'),
     ]).init(),

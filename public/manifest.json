@@ -53,6 +53,7 @@
     "contextMenus",
     "tabs",
     "alarms",
-    "notifications"
+    "notifications",
+    "downloads"
   ]
 }

@@ -26,6 +26,11 @@ export interface IButton extends BaseItem {
     color: ButtonColors;
 }
 
+export interface IUploadButton extends BaseItem {
+    onChange: (e: any) => void;
+    color: ButtonColors;
+}
+
 export interface ICategory extends IBaseItem {
     label: string;
     key: string;
@@ -34,7 +39,7 @@ export interface ICategory extends IBaseItem {
     expanded: boolean;
 }
 
-export type MenuItem = IInput | ISwitch | IButton;
+export type MenuItem = IInput | ISwitch | IButton | IUploadButton;
 export type ButtonColors = 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning' | undefined;
 
 class BaseItem implements IBaseItem {
@@ -115,6 +120,19 @@ export class Button extends BaseItem implements IButton {
         public label: string,
         public key: string,
         public onClick: () => void,
+        public color: ButtonColors = 'primary') {
+        super(label, key);
+        this.key = `${ this.constructor.name }::${ key }`;
+    }
+}
+
+export class UploadButton extends BaseItem implements IUploadButton {
+
+
+    constructor(
+        public label: string,
+        public key: string,
+        public onChange: (e: any) => void,
         public color: ButtonColors = 'primary') {
         super(label, key);
         this.key = `${ this.constructor.name }::${ key }`;
