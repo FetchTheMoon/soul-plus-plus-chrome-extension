@@ -14,6 +14,7 @@ import MarkButton from '@/components/float-button/mark';
 
 
 import TASK_LinkToReplied from '@/tasks/link-to-replied';
+import TASK_HighlightViewedThread from '@/tasks/highlight-viewed-thread';
 // 由于插件的弹出页面位于插件的路径下, 无法使用相对路径访问论坛页面, 所以记录一下
 setItem('GlobalData::domain', window.location.hostname);
 
@@ -31,6 +32,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (await getItem('Switch::infinite-scroll-search-result')) TASK_InfiniteScrollSearchResult();
     if (await getItem('Switch::infinite-scroll-pic-wall')) TASK_InfiniteScrollPicWall();
     if (await getItem('Switch::collapse-adforum-result')) TASK_CollapseAdforumResult();
+    if (await getItem('Switch::mark-checker')) TASK_HighlightViewedThread();
     if (await getItem('Switch::task-bot')) TASK_TaskBot();
     if (await getItem('Switch::mark-checker')) MarkButton();
     BackToTop();

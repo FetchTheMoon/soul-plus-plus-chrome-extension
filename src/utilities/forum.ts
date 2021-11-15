@@ -30,6 +30,7 @@ export enum Selector {
     HYPER_LINK_IN_POST = '.tpc_content a',
     QUOTE = '.t5.t2 h6.quote2+div',
     REPLY = '.t5.t2 .h1.fl>.fl',
+    THREAD_TITLE_LINK = '.tr3.t_one h3 a',
 
 
 }
@@ -44,6 +45,7 @@ export function getThreadInfo(anyEleInThread?: any, doc: Document = document) {
         // tid可能是"tpc", 不要转换成数字
         pid: pid,
         tid: Number(extract(doc.body.textContent, /var tid = '(\d+)'/)),
+        fid: Number(extract(doc.body.textContent, /var fid = '(\d+)'/)),
         title: $(doc).find(Selector.POST_TITLE).text(),
         currentPage: Number(extract(doc.body.textContent, /var page = parseInt\('(\d+)'\)/)),
         maxPage: Number(extract(doc.body.textContent, /var totalpage = parseInt\('(\d+)'\)/)),
@@ -56,7 +58,7 @@ export function getForumInfo(anyEleInForum?: JQuery, doc: Document = document) {
     } else if (doc.URL.includes('/thread_new.php')) {
         anyEleInForum = anyEleInForum ?? $(doc).find(Selector.PICWALL_THREAD).first();
     } else {
-        return;
+        throw new Error('只能在版块页面内调用 getForumInfo');
     }
     return {
         tid: Number(extract(anyEleInForum.first().find('a').attr('href'), /tid-(\d+)\.html/)),
