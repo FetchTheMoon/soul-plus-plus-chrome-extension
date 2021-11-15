@@ -6,7 +6,7 @@ export default class ViewedThreadManager {
     static async addViewedThread(fid: number, tid: number): Promise<void> {
         const f = await this.getViewedThreads(fid);
         if (!f.includes(tid)) f.push(tid);
-        this.setViewedThread(fid, f);
+        await this.setViewedThread(fid, f);
     }
 
     static async getViewedThreads(fid: number): Promise<number[]> {
@@ -21,8 +21,8 @@ export default class ViewedThreadManager {
         return await getItem('FunctionData::last-viewed-thread', -1, 'local');
     }
 
-    private static setViewedThread(fid: number, threads: number[]): void {
-        setItem('FunctionData::viewed-threads', { ...this.getAllViewedThread(), [fid]: threads }, 'local');
+    private static async setViewedThread(fid: number, threads: number[]): Promise<void> {
+        setItem('FunctionData::viewed-threads', { ...await this.getAllViewedThread(), [fid]: threads }, 'local');
     }
 
     static setLastViewedThread(tid: number): void {
