@@ -5,7 +5,7 @@ import { addStyle, extract } from '@/utilities/misc';
 import highLightViewedThreadCSS from '@/css/highlight-viewed-thread.css';
 import { getItem } from '@/utilities/storage';
 
-export default async function TASK_HighlightViewedThread() {
+export default async function TASK_HighlightViewedThread(doc: Document = document) {
     if (!await getItem('Switch::highlight-viewed-thread')) return;
     addStyle(highLightViewedThreadCSS, 'highlight-viewed-thread');
     if (document.URL.includes('/read.php')) {
@@ -29,13 +29,18 @@ export default async function TASK_HighlightViewedThread() {
     if (document.URL.includes('/thread.php')) {
         const f = getForumInfo();
         // 主动给阅读过的帖子换个颜色, 以及给上次阅读的帖子增加背景色
+
         const viewedThreads = await ViewedThreadManager.getViewedThreads(f.fid);
         const lastViewedThread = await ViewedThreadManager.getLastViewedThread();
-        document.querySelectorAll(Selector.THREAD_TITLE_LINK).forEach((e) => {
+
+        doc.querySelectorAll(Selector.THREAD_TITLE_LINK).forEach((e) => {
             const tid = Number(extract(e.id, /a_ajax_(\d+)/));
             if (viewedThreads.includes(tid)) $(e).addClass('spp-viewed-thread');
             if (tid === lastViewedThread) $(e).closest(Selector.THREAD).addClass('spp-last-viewed-thread');
         });
+
+        // 说明是其它任务调用的, 处理完高亮就可以返回了
+        if (doc !== document) return;
 
         // 主动滚动到上次浏览的帖子
         scrollToLastViewed();
@@ -73,6 +78,7 @@ export default async function TASK_HighlightViewedThread() {
 
 
 }
+
 
 function scrollToLastViewed() {
     // 滚动到上次浏览的帖子
