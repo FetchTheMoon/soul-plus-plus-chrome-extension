@@ -10,9 +10,6 @@ function addMyMarkListPopup() {
     );
 }
 
-chrome.windows.onBoundsChanged.addListener(async () => {
-
-});
 
 chrome.runtime.onStartup.addListener(async () => {
     if (await getItem('Switch::mark-checker')) addMyMarkListPopup();
