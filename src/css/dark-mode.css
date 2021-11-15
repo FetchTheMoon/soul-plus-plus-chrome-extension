@@ -52,3 +52,11 @@ a.spp-viewed-thread {
     font-style: italic;
     font-weight: bold;
 }
+
+.spp-adforum-result a {
+    color: #848484 !important;
+}
+
+button#spp-btn-show-adforum-result {
+    color: #ff8c3a;
+}
