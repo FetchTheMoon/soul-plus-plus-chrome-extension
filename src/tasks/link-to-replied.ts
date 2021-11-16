@@ -3,9 +3,14 @@ import $ from 'jquery';
 import { getThreadInfo, Selector } from '@/utilities/forum';
 import { extract } from '@/utilities/misc';
 
+let linkToReplied: boolean | undefined;
+
 export default async function TASK_LinkToReplied(item: HTMLElement | Document = document) {
-    if (!await getItem('Switch::link-to-replied')) return;
+
     if (!document.URL.includes('/read.php')) return;
+
+    linkToReplied = linkToReplied ?? await getItem('Switch::link-to-replied');
+    if (!linkToReplied) return;
     if (item instanceof HTMLElement) {
         if (item.title === '复制此楼地址') {
             item.insertAdjacentHTML('beforebegin', `<a name="SPP-${ item.innerText }" id="SPP-${ item.innerText }"></a>`);

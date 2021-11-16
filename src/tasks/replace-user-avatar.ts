@@ -5,10 +5,14 @@ import { Selector } from '@/utilities/forum';
 import * as style from '@dicebear/avatars-identicon-sprites';
 import $ from 'jquery';
 
+let replaceUserAvatar: boolean | undefined;
+
 export default async function TASK_ReplaceUserAvatar(item: HTMLElement | Document) {
-    const replaceAvatar = await getItem('Switch::replace-user-avatar');
-    if (!replaceAvatar) return;
+
     if (!document.URL.includes('/read.php')) return;
+
+    replaceUserAvatar = replaceUserAvatar ?? await getItem('Switch::replace-user-avatar');
+    if (!replaceUserAvatar) return;
     const imgs = getImages(item);
     if (!imgs.length) return;
 

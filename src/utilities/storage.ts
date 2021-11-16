@@ -4,12 +4,16 @@ export function setItem(key: string, value: any, sType: StorageType = 'sync'): v
     chrome.storage[sType].set({ [key]: value });
 }
 
-export async function getItem(key?: string, defaultValue?: any, sType: StorageType = 'sync'): Promise<any> {
+// let counter = <any>{};
+
+export async function getItem(key: string, defaultValue?: any, sType: StorageType = 'sync'): Promise<any> {
+
+    // counter[key] = counter[key] ? counter[key] + 1 : 1;
+    // console.log('getItem:', counter);
+
     if (key) {
         const item = await chrome.storage[sType].get(key);
         return item[key] ?? defaultValue;
-    } else {
-        return await chrome.storage[sType].get();
     }
 }
 

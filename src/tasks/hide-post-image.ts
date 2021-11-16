@@ -4,15 +4,19 @@ import { addStyle, getImages, isInViewport } from '@/utilities/misc';
 import { getItem } from '@/utilities/storage';
 import HidePostImageCSS from '@/css/hide-post-image.css';
 
+let hidePostImage: boolean | undefined;
+let loadImageOnDemand: boolean | undefined;
 
 export default async function TASK_HidePostImage(item: HTMLElement | Document) {
 
-    if (!await getItem('Switch::hide-post-image')) return;
     if (!document.URL.includes('/read.php')) return;
+
+    hidePostImage = hidePostImage ?? await getItem('Switch::hide-post-image');
+    if (!hidePostImage) return;
     const imgs = getImages(item);
     if (!imgs.length) return;
     addStyle(HidePostImageCSS, 'hide-post-image-css');
-    const loadImageOnDemand = await getItem('Switch::load-image-on-demand', false);
+    loadImageOnDemand = loadImageOnDemand ?? await getItem('Switch::load-image-on-demand', false);
     imgs.forEach((img) => {
         const $img = $(img);
         // 避免重复处理

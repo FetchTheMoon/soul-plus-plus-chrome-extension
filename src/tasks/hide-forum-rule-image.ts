@@ -3,9 +3,14 @@ import { Selector } from '@/utilities/forum';
 import $ from 'jquery';
 import { extract } from '@/utilities/misc';
 
-export default function TASK_HideForumRuleImage(item: HTMLElement) {
-    if (!getItem('Switch::hide-forum-rule-image')) return;
+let hideForumRuleImage: boolean | undefined;
+
+export default async function TASK_HideForumRuleImage(item: HTMLElement) {
+
     if (!document.URL.includes('/thread.php') && !document.URL.includes('/thread_new.php')) return;
+
+    hideForumRuleImage = hideForumRuleImage ?? await getItem('Switch::hide-forum-rule-image');
+    if (!hideForumRuleImage) return;
     if (!item.closest(Selector.RULE)) return;
     const fid = Number(extract(document.URL, /fid-(\d+)/));
     const whiteList = [

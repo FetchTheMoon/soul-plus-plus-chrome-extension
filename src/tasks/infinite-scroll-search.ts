@@ -3,7 +3,7 @@ import InfiniteScroll from '@/tasks/infinite-scroll';
 import { getItem } from '@/utilities/storage';
 
 export default async function TASK_InfiniteScrollSearchResult() {
-    if (await getItem('Switch::infinite-scroll-search-result')) return;
+    if (!await getItem('Switch::infinite-scroll-search-result')) return;
     if (!document.URL.includes('/search.php?')) return;
 
     const ThreadDetail = getSearchInfo();

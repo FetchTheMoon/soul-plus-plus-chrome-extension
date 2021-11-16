@@ -4,7 +4,7 @@ import $ from 'jquery';
 import { getItem } from '@/utilities/storage';
 
 export default async function TASK_InfiniteScrollPicWall() {
-    if (await getItem('Switch::infinite-scroll-pic-wall')) return;
+    if (!await getItem('Switch::infinite-scroll-pic-wall')) return;
     if (!document.URL.includes('/thread_new.php')) return;
     const ThreadDetail = getForumInfo();
     if (!ThreadDetail) return;
