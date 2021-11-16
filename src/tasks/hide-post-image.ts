@@ -6,8 +6,8 @@ import HidePostImageCSS from '@/css/hide-post-image.css';
 
 
 export default async function TASK_HidePostImage(item: HTMLElement | Document) {
-    const hidePostImage = await getItem('Switch::hide-post-image');
-    if (!hidePostImage) return;
+
+    if (!await getItem('Switch::hide-post-image')) return;
     if (!document.URL.includes('/read.php')) return;
     const imgs = getImages(item);
     if (!imgs.length) return;

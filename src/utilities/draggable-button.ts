@@ -13,7 +13,7 @@ export default async function createDraggableButton(
     name: string,
     id: string,
     initPos: { top?: string, left?: string, right?: string, bottom?: string },
-    key?: string,
+    key: string,
 ) {
     let savedTransform = await getItem(key);
     const $button = $(`<button id="${ id }" draggable="true">${ name }</button>`).css(
