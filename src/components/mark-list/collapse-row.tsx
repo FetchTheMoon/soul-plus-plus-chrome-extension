@@ -27,7 +27,7 @@ export default function CollapseRow(props: IRowProps) {
 
                     <IconButton
                         size="small"
-                        onClick={ () => props.handleClick(props.markTime) }
+                        onClick={ () => props.handleClick(props.open ? 0 : props.markTime) }
 
                     >
                         {
@@ -42,7 +42,7 @@ export default function CollapseRow(props: IRowProps) {
                 </TableCell>
 
                 {/* 标题 */ }
-                <TableCell align="left" onClick={ () => props.handleClick(props.markTime) } sx={ { cursor: 'pointer' } }>
+                <TableCell align="left" onClick={ () => props.handleClick(props.open ? 0 : props.markTime) } sx={ { cursor: 'pointer' } }>
                     <Link href={ props.row.url }
                           target={ '_blank' }
                           underline="none"
