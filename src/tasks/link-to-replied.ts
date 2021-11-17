@@ -6,7 +6,6 @@ import { extract } from '@/utilities/misc';
 let linkToReplied: boolean | undefined;
 
 export default async function TASK_LinkToReplied(item: HTMLElement | Document = document) {
-
     if (!document.URL.includes('/read.php')) return;
 
     linkToReplied = linkToReplied ?? await getItem('Switch::link-to-replied');
@@ -23,7 +22,7 @@ export default async function TASK_LinkToReplied(item: HTMLElement | Document = 
             if (ele) ele[0].scrollIntoView();
         }
 
-        $(Selector.QUOTE).each((i, e) => {
+        $item.find(Selector.QUOTE).each((i, e) => {
             const threadInfo = getThreadInfo(e);
             const floor = Number(extract(e.firstChild!.textContent, /引用第(\d+)楼/));
             const page = Math.ceil(floor / 30);
@@ -33,7 +32,7 @@ export default async function TASK_LinkToReplied(item: HTMLElement | Document = 
             );
             $(e).contents().first().replaceWith(text);
         });
-        $(Selector.REPLY).each((i, e) => {
+        $item.find(Selector.REPLY).each((i, e) => {
             const threadInfo = getThreadInfo(e);
             const floor = Number(extract(e.firstChild!.textContent, /回 (\d+)楼/));
             const page = Math.ceil(floor / 30);
