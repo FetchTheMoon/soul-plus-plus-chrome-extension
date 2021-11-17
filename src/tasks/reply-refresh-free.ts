@@ -7,6 +7,7 @@ import { Progress } from 'rsup-progress';
 import TASK_HidePostImage from '@/tasks/hide-post-image';
 import TASK_ReplaceUserAvatar from '@/tasks/replace-user-avatar';
 import TASK_LinkToReplied from '@/tasks/link-to-replied';
+import TASK_BaiduNetDiskAvailableTest from '@/tasks/baidunetdisk-available-test';
 
 
 export default async function TASK_ReplyRefreshFree() {
@@ -52,6 +53,7 @@ export default async function TASK_ReplyRefreshFree() {
                 TASK_HidePostImage,
                 TASK_ReplaceUserAvatar,
                 TASK_LinkToReplied,
+                TASK_BaiduNetDiskAvailableTest,
             ],
         );
         const uid = extract($(Selector.UID).html(), /u\.php\?action-show-uid-(\d+)\.html/);

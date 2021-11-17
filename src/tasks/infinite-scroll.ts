@@ -8,6 +8,7 @@ import TASK_BuyRefreshFree from '@/tasks/buy-refresh-free';
 import TASK_CollapseAdforumResult from '@/tasks/collapse-adforum-result';
 import TASK_HighlightViewedThread from '@/tasks/highlight-viewed-thread';
 import TASK_LinkToReplied from '@/tasks/link-to-replied';
+import TASK_BaiduNetDiskAvailableTest from '@/tasks/baidunetdisk-available-test';
 
 export default function InfiniteScroll(
     // URLTemplate: string,
@@ -58,6 +59,7 @@ export default function InfiniteScroll(
                     TASK_CollapseAdforumResult,
                     TASK_HighlightViewedThread,
                     TASK_LinkToReplied,
+                    TASK_BaiduNetDiskAvailableTest,
                 ]);
                 dividerStage.nextPageReady(divider, currentPage);
             } catch (e) {

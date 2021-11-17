@@ -14,6 +14,7 @@ import MarkButton from '@/components/float-button/mark';
 import TASK_LinkToReplied from '@/tasks/link-to-replied';
 import TASK_HighlightViewedThread from '@/tasks/highlight-viewed-thread';
 import TASK_ReplyRefreshFree from '@/tasks/reply-refresh-free';
+import TASK_BaiduNetDiskAvailableTest from '@/tasks/baidunetdisk-available-test';
 
 
 // 由于插件的弹出页面位于插件的路径下, 无法使用相对路径访问论坛页面, 所以记录一下
@@ -35,6 +36,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     TASK_InfiniteScrollPicWall();
     TASK_CollapseAdforumResult();
     TASK_HighlightViewedThread();
+    TASK_BaiduNetDiskAvailableTest();
     TASK_TaskBot();
     MarkButton();
     BackToTop();

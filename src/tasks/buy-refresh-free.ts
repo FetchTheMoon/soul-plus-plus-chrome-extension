@@ -8,6 +8,7 @@ import NotyfCss from 'notyf/notyf.min.css';
 import TASK_HidePostImage from '@/tasks/hide-post-image';
 import TASK_ReplaceUserAvatar from '@/tasks/replace-user-avatar';
 import { getItem } from '@/utilities/storage';
+import TASK_BaiduNetDiskAvailableTest from '@/tasks/baidunetdisk-available-test';
 
 
 let notyfInstance: Notyf;
@@ -90,6 +91,7 @@ export default async function TASK_BuyRefreshFree(doc: Document = document) {
                 purchasedDoc = await getDocument(resultURL, 3, [
                     TASK_HidePostImage,
                     TASK_ReplaceUserAvatar,
+                    TASK_BaiduNetDiskAvailableTest,
                 ]);
                 const purchased = $(purchasedDoc).find(`a[name="${ postDetail?.pid }"]`).next().find(Selector.POST_CONTENT);
                 $(postContainer).find(Selector.POST_CONTENT).replaceWith(purchased);
