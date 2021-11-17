@@ -7,6 +7,7 @@ import TASK_ReplaceUserAvatar from '@/tasks/replace-user-avatar';
 import TASK_BuyRefreshFree from '@/tasks/buy-refresh-free';
 import TASK_CollapseAdforumResult from '@/tasks/collapse-adforum-result';
 import TASK_HighlightViewedThread from '@/tasks/highlight-viewed-thread';
+import TASK_LinkToReplied from '@/tasks/link-to-replied';
 
 export default function InfiniteScroll(
     // URLTemplate: string,
@@ -56,6 +57,7 @@ export default function InfiniteScroll(
                     TASK_BuyRefreshFree,
                     TASK_CollapseAdforumResult,
                     TASK_HighlightViewedThread,
+                    TASK_LinkToReplied,
                 ]);
                 dividerStage.nextPageReady(divider, currentPage);
             } catch (e) {
