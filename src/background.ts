@@ -1,4 +1,5 @@
 import { getItem } from '@/utilities/storage';
+import { fetchRetry } from '@/utilities/requests';
 
 function addMyMarkListPopup() {
     chrome.contextMenus.create(
@@ -10,6 +11,24 @@ function addMyMarkListPopup() {
     );
 }
 
+chrome.runtime.onMessage.addListener((msg: any, sender, sendResponse) => {
+    switch (msg[0]) {
+        case 'request_cors': {
+            fetchRetry(
+                msg[1],
+                {
+                    mode: 'cors',
+                },
+                3,
+            ).then(async r => {
+                sendResponse(await r.text());
+            });
+
+            break;
+        }
+    }
+    return true;
+});
 
 chrome.runtime.onStartup.addListener(async () => {
     if (await getItem('Switch::mark-checker')) addMyMarkListPopup();
