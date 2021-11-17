@@ -17,6 +17,7 @@ export default async function TASK_BuyRefreshFree(doc: Document = document) {
     if (!document.URL.includes('/read.php')) return;
     // console.info(`开始处理购买按钮`);
     addStyle(NotyfCss, 'notyf-css');
+    addStyle(`.spp-progress-bar{ position:absolute !important; top:0 !important, left:0 !important }`, 'spp-progress-bar');
     // 只需要一个Notyf实例, Notyf每次实例化都会创建HTML元素
     notyfInstance = notyfInstance ?? new Notyf();
 
@@ -28,36 +29,40 @@ export default async function TASK_BuyRefreshFree(doc: Document = document) {
         // 避免点击按钮的时候跳转，删掉这个属性
         // $button.removeAttr('onclick');
         // 在Chrome Extension中移除onclick属性后点击按钮依然会跳转
-        const $clone = $(`<input 
+        const $cloneButton = $(`<input 
                             type="button" 
                             value="愿意购买,我买,我付钱" 
                             class="btn btn-danger spp-buy-refresh-free" 
                             style="line-height: 100%; background: linear-gradient(to top, rgb(189, 76, 76), rgb(251, 153, 4)) "/> 
                         `);
-        $button.replaceWith($clone);
-        $clone.css('background', 'linear-gradient(to top, #bd4c4c,#fb9904)');
+        $button.replaceWith($cloneButton);
+        const $sell = $cloneButton.closest(Selector.SELL);
+        $sell.css('position', 'relative');
+        $cloneButton.css('background', 'linear-gradient(to top, #bd4c4c,#fb9904)');
         // progress bar
         const progress = new Progress({
             height: '4px',
             color: '#2995ff',
+            container: $sell[0],
+            className: 'spp-progress-bar',
         });
         // 添加点击事件，fetch发送请求，拿到结果后直接替换到当前页面
-        $clone.on('click', async e => {
+        $cloneButton.on('click', async e => {
             e.stopPropagation();
             e.preventDefault();
             // 购买时，按钮变成不可点击状态
-            $clone.attr('value', '正在购买……请稍等………');
-            $clone.prop('disabled', true);
+            $cloneButton.attr('value', '正在购买……请稍等………');
+            $cloneButton.prop('disabled', true);
             // 获取楼层ID(pid) 帖子ID(tid) 当前页数(currentPage)备用
-            const postDetail = getThreadInfo($clone, doc);
+            const postDetail = getThreadInfo($cloneButton, doc);
             // 获取当前楼层的容器节点备用
-            let postContainer = $clone.closest(Selector.POST_CONTAINER);
+            let postContainer = $cloneButton.closest(Selector.POST_CONTAINER);
             // 购买失败后将按钮恢复原状
             const failedRecoverButton = () => {
                 notyfInstance.error('购买失败');
                 progress.end();
-                $clone.attr('value', '愿意购买,我买,我付钱');
-                $clone.prop('disabled', false);
+                $cloneButton.attr('value', '愿意购买,我买,我付钱');
+                $cloneButton.prop('disabled', false);
             };
             let html: string;
             try {
@@ -66,10 +71,12 @@ export default async function TASK_BuyRefreshFree(doc: Document = document) {
                 // 获取购买结果
                 html = await getHTML(url);
                 if (!html.includes('操作完成')) {
+                    // console.log("购买失败了", html);
                     failedRecoverButton();
                     return;
                 }
-            } catch {
+            } catch (e) {
+                // console.log(e);
                 failedRecoverButton();
             }
 
@@ -78,7 +85,7 @@ export default async function TASK_BuyRefreshFree(doc: Document = document) {
             // 重新获取购买后的楼层内容, 替换当前购买楼层的内容
             let purchasedDoc: Document;
             try {
-                $clone.attr('value', '正在加载购买内容……请稍等………');
+                $cloneButton.attr('value', '正在加载购买内容……请稍等………');
                 // await sleep(1000);
                 purchasedDoc = await getDocument(resultURL, 3, [
                     TASK_HidePostImage,
