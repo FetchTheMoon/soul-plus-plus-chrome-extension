@@ -1,18 +1,31 @@
-export async function fetchRetry(url: string, options?: RequestInit, n: number = 1): Promise<Response> {
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import qs from 'qs';
+
+export async function requestRetry(url: string, config?: AxiosRequestConfig<any>, n: number = 1): Promise<AxiosResponse> {
     try {
-        return await fetch(url, options ?? {
-            credentials: 'include',
-            mode: 'no-cors',
-        });
+        // return await fetch(url, options ?? {
+        //     credentials: 'include',
+        //     mode: 'no-cors',
+        // });
+
+        return await axios.get(url, config);
+
     } catch (err) {
+        console.log('requestRetry error:', err);
         if (n <= 1) throw err;
-        return await fetchRetry(url, options, n - 1);
+        return await requestRetry(url, config, n - 1);
     }
 }
 
+export async function post(url: string, data: any) {
+
+    return await axios.post(url, qs.stringify(data));
+}
+
 export async function getHTML(url: string, retry?: number): Promise<string> {
-    const response = await fetchRetry(url, undefined, retry);
-    return await response.text();
+    const response = await requestRetry(url, undefined, retry);
+    // return await response.text();
+    return await response.data;
 }
 
 
