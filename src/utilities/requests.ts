@@ -1,12 +1,25 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import qs from 'qs';
 
+export async function fetchRetry(url: string, options?: RequestInit, n: number = 1): Promise<Response> {
+    try {
+        return await fetch(url, options ?? {
+            credentials: 'include',
+            mode: 'no-cors',
+        });
+    } catch (err) {
+        if (n <= 1) throw err;
+        return await fetchRetry(url, options, n - 1);
+    }
+}
+
+// axios在service worker跨域会出现 adapter is not a function
+// https://github.com/axios/axios/issues/2968#issuecomment-744012443
+// https://github.com/axios/axios/issues/4209
+// https://github.com/axios/axios/issues/1219
+// https://github.com/axios/axios/issues/484
 export async function requestRetry(url: string, config?: AxiosRequestConfig<any>, n: number = 1): Promise<AxiosResponse> {
     try {
-        // return await fetch(url, options ?? {
-        //     credentials: 'include',
-        //     mode: 'no-cors',
-        // });
 
         return await axios.get(url, config);
 
