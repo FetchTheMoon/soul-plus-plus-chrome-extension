@@ -31,6 +31,9 @@ export enum Selector {
     QUOTE = '.t5.t2 h6.quote2+div',
     REPLY = '.t5.t2 .h1.fl>.fl',
     THREAD_TITLE_LINK = '.tr3.t_one h3 a',
+    REPLY_TEXTAREA = 'textarea[onkeydown="quickpost(event)"]',
+    SUBMIT_BUTTON = 'input[type=\'submit\']',
+    REPLY_FORM_DATA = 'form .f_one input',
 
 
 }

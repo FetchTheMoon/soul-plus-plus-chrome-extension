@@ -19,6 +19,7 @@ export default [
     // 免刷新
     new Category('免刷新', 'refresh-free', SyncDisabledIcon, [
         new Switch('购买免刷新', 'buy-refresh-free').init(),
+        new Switch('回复免刷新', 'reply-refresh-free').init(),
     ]).init(),
 
 
