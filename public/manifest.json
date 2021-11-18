@@ -48,12 +48,8 @@
   },
   "permissions": [
     "storage",
-    "scripting",
-    "unlimitedStorage",
     "contextMenus",
     "tabs",
-    "alarms",
-    "notifications",
     "downloads"
   ],
   "host_permissions": [
