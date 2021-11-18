@@ -939,6 +939,11 @@ csstype@^3.0.2, csstype@^3.0.9:
   resolved "https://registry.nlark.com/csstype/download/csstype-3.0.9.tgz?cache=0&sync_timestamp=1631540708034&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcsstype%2Fdownload%2Fcsstype-3.0.9.tgz#6410af31b26bd0520933d02cbc64fce9ce3fbf0b"
   integrity sha1-ZBCvMbJr0FIJM9AsvGT86c4/vws=
 
+darkreader@^4.9.40:
+  version "4.9.40"
+  resolved "https://registry.npmmirror.com/darkreader/download/darkreader-4.9.40.tgz#9217a2ae83d8aca0b4dc129bba78a0617aca5bce"
+  integrity sha1-kheiroPYrKC03BKbunigYXrKW84=
+
 dayjs@^1.9.1:
   version "1.10.7"
   resolved "https://registry.nlark.com/dayjs/download/dayjs-1.10.7.tgz?cache=0&sync_timestamp=1631266519235&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fdayjs%2Fdownload%2Fdayjs-1.10.7.tgz#2cf5f91add28116748440866a0a1d26f3a6ce468"
