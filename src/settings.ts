@@ -29,6 +29,7 @@ export default [
         new Switch('无缝加载贴内楼层列表', 'infinite-scroll-post').init(),
         new Switch('无缝加载搜索页结果', 'infinite-scroll-search-result').init(),
         new Switch('无缝加载图墙模式帖子', 'infinite-scroll-pic-wall').init(),
+        new Switch('无缝加载用户资料帖子', 'infinite-scroll-users-thread').init(),
     ]).init(),
 
 

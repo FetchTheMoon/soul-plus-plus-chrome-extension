@@ -18,6 +18,7 @@ import TASK_BaiduNetDiskAvailableTest from '@/tasks/baidunetdisk-available-test'
 import TASK_ReplyNotificationByDefault from '@/tasks/reply-notification-by-default';
 
 import TASK_ForceDesktopVersion from '@/tasks/force-desktop-version';
+import TASK_InfiniteScrollUsersThread from '@/tasks/infinite-scroll-users-thread';
 
 // 由于插件的弹出页面位于插件的路径下, 无法使用相对路径访问论坛页面, 所以记录一下
 setItem('GlobalData::domain', window.location.hostname);
@@ -41,6 +42,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     TASK_InfiniteScrollThread();
     TASK_InfiniteScrollSearchResult();
     TASK_InfiniteScrollPicWall();
+    TASK_InfiniteScrollUsersThread();
     TASK_HighlightViewedThread();
     TASK_ReplyRefreshFree();
     TASK_ReplyNotificationByDefault();
