@@ -1,6 +1,6 @@
 {
   "name": "soul-plus-plus-chrome-extension",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "提升魂+使用体验",
   "main": "index.js",
   "scripts": {
