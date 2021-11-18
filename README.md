@@ -36,10 +36,12 @@
 
 ## 使用方法
 
-1. 下载[最新版本(那个zip压缩包)](https://github.com/FetchTheMoon/soul-plus-plus-chrome-extension/releases/latest)
-2. 在Chrome的`设置` - `扩展程序` - 右上角打开`开发者模式`
-3. 找到刚才下载的zip压缩包(不要解压), 将压缩包拖到刚才打开的设置页面中
-4. 开始愉快的使用吧
+1. 你需要一个使用`Chromium`核心的浏览器
+2. 下载[最新版本(那个zip压缩包)](https://github.com/FetchTheMoon/soul-plus-plus-chrome-extension/releases/latest)
+3. 在你的浏览器的`设置` - `扩展程序` - 右上角打开`开发者模式`
+4. 如果你使用的是 Edge 浏览器, 你现在可以直接把压缩包拖到设置页面里, 即可开始愉快的使用. 如果不是, 往下看
+5. 解压刚才下载的 zip 压缩包到某个文件夹里
+6. 点击左上角的`加载已解压的扩展程序`按钮, 选择存放已解压扩展的文件夹, 开始愉快的使用吧.
 
 ## 欢迎 issue / PR
 
