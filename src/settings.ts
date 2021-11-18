@@ -68,6 +68,7 @@ export default [
                 };
             },
         ).init(),
+        new Switch('强制使用桌面版', 'force-desktop-version').init(),
     ]).init(),
 
 
