@@ -43,7 +43,7 @@ button#spp-btn-show-adforum-result {
     color: #ff8c3a
 }
 
-Original CSS Beautify html, html {
+html, html {
     background-color: #242525 !important
 }
 
@@ -445,9 +445,6 @@ select {
     border-bottom-color: #3f4141
 }
 
-#editor-button, #editor-tab span, .gonggao, .gonggao .gongul li, fieldset#smiliebox {
-    background: initial !important
-}
 
 a.spp-viewed-thread {
     color: #686868 !important
@@ -463,4 +460,29 @@ a.spp-viewed-thread {
 
 .spp-adforum-result a {
     color: #848484 !important
+}
+
+#editor-button,
+#editor-tab span,
+.gonggao,
+.gonggao .gongul li,
+fieldset#smiliebox,
+#u-wrap2,
+#u-wrap,
+#u-portrait,
+.bgA,
+#u-fav-cate > h5,
+#u-fav-cate span,
+#set-content,
+#set-side-wrap,
+.set-tab-table,
+.set-tab-table td.current,
+.set-h2 {
+    background: initial !important
+}
+
+.set-tab-table a,
+#set-side-wrap > h2,
+#set-side-wrap a {
+    color: #e5e0d8 !important;
 }
