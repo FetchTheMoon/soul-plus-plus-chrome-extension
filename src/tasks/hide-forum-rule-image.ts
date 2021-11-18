@@ -25,13 +25,9 @@ export default async function TASK_HideForumRuleImage(item: HTMLElement) {
     const $bigImg = $(Selector.RULE_IMAGE_BIG);
     $mediumImg?.addClass('spp-hide');
     $bigImg?.addClass('spp-hide');
-    const $switchButton = $(`<button id="spp-hide-forum-rule-image-button">查看版块大图</button>`);
 
-    ($bigImg
-        ? $bigImg
-        : $mediumImg
-            ? $mediumImg
-            : undefined)?.before($switchButton);
+    const $switchButton = $(`<button id="spp-hide-forum-rule-image-button">查看版块大图</button>`);
+    $('#cate_thread')?.before($switchButton);
 
     $switchButton.on('click', (e) => {
         $mediumImg?.toggleClass('spp-hide');
