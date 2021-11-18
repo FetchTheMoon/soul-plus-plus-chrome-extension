@@ -7,7 +7,7 @@ import { getItem } from '@/utilities/storage';
 export default async function TASK_CollapseAdforumResult(doc = document) {
     if (!await getItem('Switch::collapse-adforum-result')) return;
     if (!document.URL.includes('/search.php?')) return;
-    console.log('开始折叠网赚区结果');
+    // console.log('开始折叠网赚区结果');
     addStyle(CollapseAdforumResultCSS, 'collapse-adforum-result-css');
     const btnShowAdforumResultClass = 'spp-btn-show-adforum-result';
     const listTitle = $(Selector.SEARCH_RESULT_TITLE);

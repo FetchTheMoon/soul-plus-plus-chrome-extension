@@ -17,7 +17,7 @@ export default async function TASK_HideForumRuleImage(item: HTMLElement) {
         9,      // 茶馆 - 以和为贵, 以礼待人
         135,    // GALGAME汉化区 - 虚拟抱抱
     ];
-    console.info(`开始隐藏版块大图`);
+    // console.info(`开始隐藏版块大图`);
     if (!whiteList.includes(fid)) {
         $(Selector.RULE_IMAGE_MEDIUM).removeAttr('src');
     }

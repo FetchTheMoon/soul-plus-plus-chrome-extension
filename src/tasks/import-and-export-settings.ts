@@ -25,11 +25,11 @@ export function ImportSettings(e: any) {
     reader.onload = function (e) {
         const contents = e.target!.result as string;
         const json = JSON.parse(contents);
-        console.log(json);
+        // console.log(json);
         if (!confirm('确定要覆盖所有的设置?')) return;
         for (const key in json) {
-            console.log(key);
-            console.log(json);
+            // console.log(key);
+            // console.log(json);
             if (key !== 'local' && key !== 'sync') throw new Error('配置文件有误');
             chrome.storage[key].set(json[key]);
             window.location.reload();
