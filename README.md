@@ -30,7 +30,13 @@
   - [X] 默认勾选"新回复站内通知
   - [X] 域名跳转
   - [X] 强制使用桌面版
- 
+
+## 使用方法
+
+1. 下载[最新版本(那个zip压缩包)](https://github.com/FetchTheMoon/soul-plus-plus-chrome-extension/releases/latest)
+2. 在Chrome的`设置` - `扩展程序` - 右上角打开`开发者模式`
+3. 找到刚才下载的zip压缩包(不要解压), 将压缩包拖到刚才打开的设置页面中
+4. 开始愉快的使用吧
 
 ## 欢迎 issue / PR
 
