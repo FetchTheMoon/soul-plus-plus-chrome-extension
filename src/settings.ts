@@ -54,6 +54,7 @@ export default [
         new Switch('给[回复/引用]增加跳转链接', 'link-to-replied').init(),
         new Switch('折叠网赚区搜索结果', 'collapse-adforum-result').init(),
         new Switch('百度网盘链接失效检测', 'baidunetdisk-available-test').init(),
+        new Switch('默认勾选"新回复站内通知"', 'reply-notification-by-default').init(),
         new Switch('域名跳转', 'domain-redirect').init(),
         new Input(
             '要跳转的域名',

@@ -24,23 +24,25 @@ setItem('GlobalData::domain', window.location.hostname);
 
 MutationObserverProcess();
 
+TASK_ForceDesktopVersion();
 TASK_DomainRedirect();
 TASK_DarkMode();
 
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOMContentLoaded');
+    BackToTop();
+    MarkButton();
+    TASK_TaskBot();
     TASK_LinkToReplied();
     TASK_BuyRefreshFree();
-    TASK_ReplyRefreshFree();
+    TASK_BaiduNetDiskAvailableTest();
+    TASK_CollapseAdforumResult();
     TASK_InfiniteScrollPost();
     TASK_InfiniteScrollThread();
     TASK_InfiniteScrollSearchResult();
     TASK_InfiniteScrollPicWall();
-    TASK_CollapseAdforumResult();
     TASK_HighlightViewedThread();
-    TASK_BaiduNetDiskAvailableTest();
-    TASK_TaskBot();
-    MarkButton();
-    BackToTop();
+    TASK_ReplyRefreshFree();
+    TASK_ReplyNotificationByDefault();
 });
 
