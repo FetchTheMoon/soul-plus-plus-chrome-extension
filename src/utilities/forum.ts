@@ -35,6 +35,7 @@ export enum Selector {
     SUBMIT_BUTTON = 'input[type=\'submit\']',
     REPLY_FORM_DATA = 'form .f_one input',
     USERS_THREAD = '#u-contentmain table',
+    PICWALL_SWITCH_LINK = '.fr.gray3>a',
 
 
 }

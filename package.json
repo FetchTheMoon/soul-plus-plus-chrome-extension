@@ -34,7 +34,6 @@
     "axios": "^0.24.0",
     "copy-webpack-plugin": "^9.0.1",
     "crypto-js": "^4.1.1",
-    "darkreader": "^4.9.40",
     "jquery": "^3.6.0",
     "notyf": "^3.10.0",
     "parse-domain": "^4.1.0",

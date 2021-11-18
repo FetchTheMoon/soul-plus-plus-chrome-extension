@@ -31,6 +31,9 @@
   - [X] 域名跳转
   - [X] 强制使用桌面版
 
+- 页面增强
+  - 在[点击进入图墙模式]旁边增加了"在该版块默认打开图墙模式"复选框
+
 ## 使用方法
 
 1. 下载[最新版本(那个zip压缩包)](https://github.com/FetchTheMoon/soul-plus-plus-chrome-extension/releases/latest)
