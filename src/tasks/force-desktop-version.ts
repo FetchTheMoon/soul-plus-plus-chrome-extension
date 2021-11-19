@@ -1,5 +1,6 @@
 import { getItem } from '@/utilities/storage';
 import { getHostname } from '@/utilities/domain';
+import { extract } from '@/utilities/misc';
 
 
 export default async function TASK_ForceDesktopVersion() {
@@ -13,10 +14,9 @@ export default async function TASK_ForceDesktopVersion() {
         if (await getItem('Switch::domain-redirect')) domain = getHostname(await getItem('Input::domain'));
         if (!domain) domain = window.location.host;
         const host = `${ window.location.protocol }//${ domain }/`;
-
         {
-            const m = window.location.search.match(/\?f(\d+)_?(\d).html/);
-            const [s, fid, page] = m ? m : [];
+            const s = extract(window.location.search, /\?f(\d+_?\d+)\.html/);
+            const [fid, page] = s.split('_');
             if (fid) {
                 window.location.href = host + `/thread.php?fid=${ fid }${ page ? `&page=${ page }` : '' }`;
                 return;
@@ -24,8 +24,8 @@ export default async function TASK_ForceDesktopVersion() {
         }
 
         {
-            const m = window.location.search.match(/\?t(\d+)_?(\d).html/);
-            const [s, tid, page] = m ? m : [];
+            const s = extract(window.location.search, /\?t(\d+_?\d+)\.html/);
+            const [tid, page] = s.split('_');
             if (tid) {
                 window.location.href = host + `/read.php?tid=${ tid }${ page ? `&page=${ page }` : '' }`;
                 return;
