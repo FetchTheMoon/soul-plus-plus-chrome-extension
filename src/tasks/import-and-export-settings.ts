@@ -8,10 +8,11 @@ export async function ExportSettings() {
 
     const wa = CryptoJS.enc.Utf8.parse(JSON.stringify(allItems, undefined, 2));
     const url = 'data:application/json;base64,' + CryptoJS.enc.Base64.stringify(wa);
-    chrome.downloads.download({
-        url: url,
-        filename: 'settings.json',
-    });
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'settings.json'
+    a.click();
 }
 
 

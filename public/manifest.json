@@ -22,11 +22,11 @@
         "https://soul-plus.net/*",
         "https://south-plus.net/*",
         "https://north-plus.net/*",
-        "https://snow-plus.net/*",
         "https://level-plus.net/*",
         "https://white-plus.net/*",
         "https://imoutolove.me/*",
-        "https://south-plus.org/*"
+        "https://south-plus.org/*",
+        "https://snow-plus.net/*"
       ],
       "js": [
         "js/content_script.js"
@@ -49,8 +49,7 @@
   "permissions": [
     "storage",
     "contextMenus",
-    "tabs",
-    "downloads"
+    "tabs"
   ],
   "host_permissions": [
     "https://pan.baidu.com/*"
