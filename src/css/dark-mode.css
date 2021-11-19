@@ -477,7 +477,10 @@ fieldset#smiliebox,
 #set-side-wrap,
 .set-tab-table,
 .set-tab-table td.current,
-.set-h2 {
+.set-h2,
+.tt2 table,
+.u-h5 span,
+.u-h5{
     background: initial !important
 }
 
