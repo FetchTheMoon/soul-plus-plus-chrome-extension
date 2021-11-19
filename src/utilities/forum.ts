@@ -32,7 +32,7 @@ export enum Selector {
     REPLY = '.t5.t2 .h1.fl>.fl',
     THREAD_TITLE_LINK = '.tr3.t_one h3 a',
     REPLY_TEXTAREA = 'textarea[onkeydown="quickpost(event)"]',
-    SUBMIT_BUTTON = 'input[type=\'submit\']',
+    SUBMIT_BUTTON = 'form[action="post.php?"] input[type="submit"]',
     REPLY_FORM_DATA = 'form .f_one input',
     USERS_THREAD = '#u-contentmain table',
     PICWALL_SWITCH_LINK = '.fr.gray3>a',
