@@ -1,9 +1,10 @@
 import { getItem } from '@/utilities/storage';
-import { extract, getImages } from '@/utilities/misc';
+import { addStyle, extract, getImages } from '@/utilities/misc';
 import { createAvatar } from '@dicebear/avatars';
 import { Selector } from '@/utilities/forum';
 import * as style from '@dicebear/avatars-identicon-sprites';
 import $ from 'jquery';
+import CSS from '@/css/replace-user-avatar.css';
 
 let replaceUserAvatar: boolean | undefined;
 
@@ -15,6 +16,8 @@ export default async function TASK_ReplaceUserAvatar(item: HTMLElement | Documen
     if (!replaceUserAvatar) return;
     const imgs = getImages(item);
     if (!imgs.length) return;
+
+    addStyle(CSS, 'replace-user-avatar');
 
     imgs.forEach(img => {
         const $img = $(img);
