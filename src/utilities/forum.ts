@@ -34,7 +34,7 @@ export enum Selector {
     REPLY_TEXTAREA = 'textarea[onkeydown="quickpost(event)"]',
     SUBMIT_BUTTON = 'form[action="post.php?"] input[type="submit"]',
     REPLY_FORM_DATA = 'form .f_one input',
-    USERS_THREAD = '#u-contentmain table',
+    USERS_THREAD = '#u-contentmain table tr',
     PICWALL_SWITCH_LINK = '.fr.gray3>a',
 
 

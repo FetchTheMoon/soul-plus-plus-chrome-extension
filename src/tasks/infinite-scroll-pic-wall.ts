@@ -12,7 +12,7 @@ export default async function TASK_InfiniteScrollPicWall() {
         // `/thread_new.php?fid=${ThreadDetail.fid}&page={page}`,
         ThreadDetail.currentPage,
         ThreadDetail.maxPage,
-        `<tr class="tr2"><td colspan="12" class="tac" style="border-top:0;font-weight: bold">...</td></tr>`,
+        `<tr class="tr2 spp-infinite-scroll-divider"><td colspan="12" class="tac" style="border-top:0;font-weight: bold">...</td></tr>`,
         Selector.PICWALL_THREAD,
         {
             fetchingNextPage: (divider, page) => divider.children(':only-child').text(`正在获取${ page + 1 }页的帖子`),
@@ -20,13 +20,14 @@ export default async function TASK_InfiniteScrollPicWall() {
             fetchFailed: (divider, page) => divider.children(':only-child').text(`获取第${ page + 1 }的帖子失败了, 请检查你的网络或者刷新后重试`),
             nextPageLoaded: (divider, page) => divider.children(':only-child').text(`以下是第${ page + 1 }页的帖子`),
         },
-        Selector.PICWALL_THREAD,
+        // 图墙区的帖子需要把图片地址从data-original里取出来赋值给src属性，否则图片不会显示
         (cache: Document) => {
             $(cache).find(Selector.PICWALL_THREAD_PIC).each((i, e) => {
-                $(e).attr('src', $(e).data('original'));
-                $(e).removeData('original');
-                $(e).removeClass('lazy');
-                $(e).css({ display: 'inline' });
+                const $e = $(e)
+                $e.attr('src', $e.data('original'));
+                $e.removeData('original');
+                $e.removeClass('lazy');
+                $e.css({ display: 'inline' });
             });
         },
     );
