@@ -65,6 +65,8 @@ export default async function TASK_ReplyRefreshFree() {
         $(Selector.POST_CONTAINER).last().after($yourReply);
         $yourReply[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
         progress.end();
+        // 回复后清空文本
+        $textArea2.val("");
     };
 
     // 模拟原网页的"按键"提交回帖
