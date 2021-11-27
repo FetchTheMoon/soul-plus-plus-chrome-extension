@@ -9,7 +9,8 @@ export default async function TASK_BaiduNetDiskAvailableTest(doc: Document = doc
 
     $(doc).find(`a[href^='https://pan.baidu.com']`).each((i, e) => {
         const ele = <HTMLLinkElement>e;
-
+        const link = ele.textContent;
+        ele.textContent = link + ' ⌛'
         chrome.runtime.sendMessage(
             [
                 'request_cors',
@@ -18,9 +19,9 @@ export default async function TASK_BaiduNetDiskAvailableTest(doc: Document = doc
             function (txt) {
                 const title = extract(txt, /<title>(.+)<\/title>/);
                 if (title.includes('请输入提取码') || title.includes('免费高速下载')) {
-                    ele.textContent = ele.textContent + ' ✅';
+                    ele.textContent = link + ' ✅';
                 } else {
-                    ele.textContent = ele.textContent + ' ❌';
+                    ele.textContent = link + ' ❌';
                 }
             },
         );
