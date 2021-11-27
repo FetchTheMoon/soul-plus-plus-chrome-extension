@@ -25,7 +25,7 @@ export default async function TASK_LinkToReplied(item: HTMLElement | Document = 
         $item.find(Selector.QUOTE).each((i, e) => {
             const threadInfo = getThreadInfo(e);
             const floor = Number(extract(e.firstChild!.textContent, /引用第(\d+)楼/));
-            const page = Math.ceil(floor / 30);
+            const page = Math.ceil(floor / 31);
             const text = e.firstChild!.textContent!.replace(
                 /引用(第\d+楼)(.+)/,
                 `引用<a style="color: dodgerblue" href="/read.php?tid=${ threadInfo.tid }&page=${ page }#SPP-B${ floor }F">$1</a>$2`,
@@ -35,7 +35,7 @@ export default async function TASK_LinkToReplied(item: HTMLElement | Document = 
         $item.find(Selector.REPLY).each((i, e) => {
             const threadInfo = getThreadInfo(e);
             const floor = Number(extract(e.firstChild!.textContent, /回 (\d+)楼/));
-            const page = Math.ceil(floor / 30);
+            const page = Math.ceil(floor / 31);
             const text = e.firstChild!.textContent!.replace(
                 /回 (\d+)楼(.+)/,
                 `回 <a style="color: dodgerblue" href="/read.php?tid=${ threadInfo.tid }&page=${ page }#SPP-B${ floor }F">$1楼</a>$2`,
