@@ -35,8 +35,15 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.css?$/,
+                test: /\.css$/,
                 use: [{ loader: 'text-loader' }],
+            },
+            {
+                test: /\.styl$/,
+                use: [
+                    { loader: 'text-loader' },
+                    { loader: 'stylus-loader' },
+                ],
             },
         ],
     },
