@@ -1,5 +1,6 @@
 import { getItem } from '@/utilities/storage';
 import { fetchRetry } from '@/utilities/requests';
+import { base64ToBlob } from '@/utilities/blob-base64';
 
 function addMyMarkListPopup() {
     chrome.contextMenus.create(
@@ -26,6 +27,32 @@ chrome.runtime.onMessage.addListener((msg: any, sender, sendResponse) => {
 
             break;
         }
+        case 'upload_img': {
+
+            const body = { ...msg[2], source: base64ToBlob(msg[2]['source']) };
+            console.log(body);
+            const formData = new FormData();
+            for (const [k, v] of Object.entries(body)) {
+                formData.append(k, v as (string | Blob));
+            }
+            console.log(formData);
+            fetchRetry(
+                msg[1],
+                {
+                    body: formData,
+                    method: 'post',
+                    mode: 'no-cors',
+                    credentials: 'include',
+                    headers: {
+                        accept: 'application/json',
+                        contentType: 'multipart/form-data',
+                    },
+                },
+                1,
+            ).then(async r => {
+                sendResponse(await r.json());
+            });
+        }
     }
     return true;
 });
@@ -49,7 +76,7 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
 });
 
 
-chrome.contextMenus.onClicked.addListener(function (clickData, tab) {
+chrome.contextMenus.onClicked.addListener(function (clickData) {
     if (clickData.menuItemId === 'popup-my-mark-list') {
         chrome.tabs.create(
             {

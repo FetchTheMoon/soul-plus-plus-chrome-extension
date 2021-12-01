@@ -20,6 +20,7 @@ import TASK_ReplyNotificationByDefault from '@/tasks/reply-notification-by-defau
 import TASK_ForceDesktopVersion from '@/tasks/force-desktop-version';
 import TASK_InfiniteScrollUsersThread from '@/tasks/infinite-scroll-users-thread';
 import { TASK_AddPicwallDefaultCheckbox, TASK_PicwallDefaultRedirect } from '@/tasks/picwall-default';
+import TASK_AddImgUpload from '@/tasks/add-img-upload';
 
 // 由于插件的弹出页面位于插件的路径下, 无法使用相对路径访问论坛页面, 所以记录一下
 setItem('GlobalData::domain', window.location.hostname);
@@ -36,6 +37,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     BackToTop();
     MarkButton();
     TASK_AddPicwallDefaultCheckbox();
+    TASK_AddImgUpload();
     TASK_TaskBot();
     TASK_LinkToReplied();
     TASK_BuyRefreshFree();
