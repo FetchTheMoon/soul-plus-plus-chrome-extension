@@ -37,7 +37,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     BackToTop();
     MarkButton();
     TASK_AddPicwallDefaultCheckbox();
-    TASK_AddImgUpload();
     TASK_TaskBot();
     TASK_LinkToReplied();
     TASK_BuyRefreshFree();
@@ -51,5 +50,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     TASK_HighlightViewedThread();
     TASK_ReplyRefreshFree();
     TASK_ReplyNotificationByDefault();
+    TASK_AddImgUpload();
 });
 

@@ -40,11 +40,8 @@ export default async function TASK_AddImgUpload() {
             },
         );
     });
+    const uploadHandler = async (files: FileList | null | undefined) => {
 
-    $dropZone.on('change', async e => {
-        console.log(e.type);
-        e.stopPropagation();
-        const files = (e?.currentTarget as HTMLInputElement).files;
         console.log(files);
         if (!files) return;
         if (files.length === 0) return;
@@ -100,8 +97,9 @@ export default async function TASK_AddImgUpload() {
         }
 
         await progress.promise(Promise.allSettled(all));
-    });
-
+    };
+    $dropZone.on('change', e => uploadHandler((e!.currentTarget as HTMLInputElement).files));
+    $editor.on('paste', e => uploadHandler((e.originalEvent as ClipboardEvent).clipboardData?.files));
 }
 
 function setStatusText(txt: string) {
