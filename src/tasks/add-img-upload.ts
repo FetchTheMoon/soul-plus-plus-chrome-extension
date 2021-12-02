@@ -15,7 +15,7 @@ export default async function TASK_AddImgUpload() {
     $(`
 <div class="spp-img-upload">
     <div class="drop-zone">
-        <input type="file" accept="image/*" id="file-input"  required multiple>
+        <input type="file" accept="image/*" id="file-input" multiple>
         <div class="status">拖拽图片至此处，或点此上传</div>
     </div>
 </div>`).insertAfter($editor);
