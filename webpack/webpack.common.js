@@ -27,10 +27,7 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 use: {
-                    loader: 'ts-loader',
-                    options: {
-                        transpileOnly: true,
-                    },
+                    loader: 'babel-loader',
                 },
                 exclude: /node_modules/,
             },

@@ -1,20 +1,24 @@
 export type StorageType = 'local' | 'sync';
 
-export function setItem(key: string, value: any, sType: StorageType = 'sync'): void {
-    chrome.storage[sType].set({ [key]: value });
+export async function setItem(key: string, value: any, sType: StorageType = 'sync') {
+    await chrome.storage[sType].set({ [key]: value });
 }
 
-// let counter = <any>{};
 
-export async function getItem(key: string, defaultValue?: any, sType: StorageType = 'sync'): Promise<any> {
+export async function getItem(key?: string, defaultValue?: any, sType: StorageType = 'sync'): Promise<any> {
 
-    // counter[key] = counter[key] ? counter[key] + 1 : 1;
-    // console.log('getItem:', counter);
+    return new Promise((resolve) => {
 
-    if (key) {
-        const item = await chrome.storage[sType].get(key);
-        return item[key] ?? defaultValue;
-    }
+        if (key)
+            chrome.storage[sType].get(key, (items => {
+                resolve(items?.[key] ?? defaultValue);
+            }));
+
+        else
+            chrome.storage[sType].get(items => resolve(items));
+    });
+
+
 }
 
 export function clearItems(sType: StorageType = 'sync') {
@@ -22,8 +26,8 @@ export function clearItems(sType: StorageType = 'sync') {
 }
 
 export async function getAllItems() {
-    const sync = await chrome.storage.sync.get();
-    const local = await chrome.storage.local.get();
+    const sync = await getItem(undefined, {}, 'sync');
+    const local = await getItem(undefined, {}, 'local');
 
     return { sync, local };
 

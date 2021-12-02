@@ -23,7 +23,7 @@ export function ImportSettings(e: any) {
     }
     const reader = new FileReader();
 
-    reader.onload = function (e) {
+    reader.onload = async function (e) {
         const contents = e.target!.result as string;
         const json = JSON.parse(contents);
         // console.log(json);
@@ -32,9 +32,9 @@ export function ImportSettings(e: any) {
             // console.log(key);
             // console.log(json);
             if (key !== 'local' && key !== 'sync') throw new Error('配置文件有误');
-            chrome.storage[key].set(json[key]);
-            window.location.reload();
+            await chrome.storage[key].set(json[key]);
         }
+        window.location.reload();
     };
 
     reader.readAsText(file);

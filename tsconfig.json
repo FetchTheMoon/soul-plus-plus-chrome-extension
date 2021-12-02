@@ -13,6 +13,7 @@
         "src/*"
       ]
     },
+    "noEmit": true,
     "noEmitOnError": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
