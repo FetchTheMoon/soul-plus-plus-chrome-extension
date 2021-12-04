@@ -76,12 +76,15 @@ export default async function TASK_AddImgUpload() {
                     ], response => {
                         console.log(response);
                         if (response?.status_code === 200) {
+
                             const $editor = $('textarea').last();
-                            $editor.val(
-                                $editor.val()
-                                + `${ $editor.val() ? '\n' : '' }`
-                                + `[img]${ response['image']['image']['url'] }[/img]`,
-                            );
+                            // $editor.val(
+                            //     $editor.val()
+                            //     + `${ $editor.val() ? '\n' : '' }`
+                            //     + `[img]${ response['image']['image']['url'] }[/img]`,
+                            // );
+                            const [start, end] = [$editor.prop('selectionStart'), $editor.prop('selectionEnd')];
+                            ($editor[0] as HTMLTextAreaElement).setRangeText(`[img]${ response['image']['image']['url'] }[/img]`, start, end, 'preserve');
                             setStatusText(`${ file.name }上传成功`);
                             resolve(response['image']['image']['url']);
                         } else if (response?.status_code === 400) {
