@@ -1,12 +1,17 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import qs from 'qs';
 
-export async function fetchRetry(url: string, options?: RequestInit, n: number = 1): Promise<Response> {
+export async function fetchRetry(url: string, options?: RequestInit, n: number = 1, timeout = 5000): Promise<Response> {
     try {
-        return await fetch(url, options ?? {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeout);
+        options = options ?? {
             credentials: 'include',
             mode: 'no-cors',
-        });
+        };
+        options.signal = controller.signal;
+        options.signal.addEventListener('abort', () => clearTimeout(timeoutId));
+        return await fetch(url, options).finally(() => clearTimeout(timeoutId));
     } catch (err) {
         if (n <= 1) throw err;
         return await fetchRetry(url, options, n - 1);
