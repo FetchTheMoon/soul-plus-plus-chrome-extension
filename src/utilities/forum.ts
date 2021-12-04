@@ -27,7 +27,7 @@ export enum Selector {
     POST_TITLE = '.crumbs-item.current strong>a',
     OFFER_STAGE = '.tips .s3',
     SELL = '.quote.jumbotron',
-    HYPER_LINK_IN_POST = '.tpc_content a',
+    HYPER_LINK_IN_POST = '.f14>a',
     QUOTE = '.t5.t2 h6.quote2+div',
     REPLY = '.t5.t2 .h1.fl>.fl',
     THREAD_TITLE_LINK = '.tr3.t_one h3 a',
