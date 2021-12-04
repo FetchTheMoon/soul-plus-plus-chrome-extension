@@ -90,7 +90,7 @@ async function markChecker() {
                     pid: t.pid,
                 });
             }
-            if (extractAll($post.find(Selector.POST_CONTENT).text(), /magnet:\?xt=urn:btih:[a-fA-F0-9]{30,}/g).length
+            if (extractAll($post.find(Selector.POST_CONTENT).text(), /magnet:\?xt=urn:btih:[a-zA-Z0-9]{30,}/gi).length
                 && checking.magnet.filter(s => s.pid === t.pid).length === 0) {
                 checking.magnet.push({
                     tid: t.tid,
@@ -99,7 +99,7 @@ async function markChecker() {
                 });
             }
 
-            if (extractAll($post.find(Selector.POST_CONTENT).text(), /([\dA-Fa-f]{32})#(?:([\dA-Fa-f]{32})#)?([\d]{1,20})#([\s\S]+)/g).length
+            if (extractAll($post.find(Selector.POST_CONTENT).text(), /([\dA-Fa-f]{32})#(?:([\dA-Fa-f]{32})#)?([\d]{1,20})#([\s\S]+)/gi).length
                 && checking.miaochuan.filter(s => s.pid === t.pid).length === 0) {
                 checking.miaochuan.push({
                     tid: t.tid,
