@@ -1,7 +1,7 @@
 {
   "name": "Soul++",
   "description": "提升魂+论坛的使用体验",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "manifest_version": 3,
   "content_scripts": [
     {
@@ -26,7 +26,8 @@
         "https://white-plus.net/*",
         "https://imoutolove.me/*",
         "https://south-plus.org/*",
-        "https://snow-plus.net/*"
+        "https://snow-plus.net/*",
+        "https://east-plus.net/*"
       ],
       "js": [
         "js/content_script.js"
