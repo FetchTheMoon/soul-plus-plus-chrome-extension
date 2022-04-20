@@ -10,12 +10,16 @@
  
 感谢各位使用拙作以及对在下的包容。
 
-2022/04/16 已提交 Chrome 插件商店审核，能否通过审核尚未可知，目前手动更新的正确姿势为：
+2022/04/21 已在 Chrome 插件商店通过审核。[\[安装地址\]](https://chrome.google.com/webstore/detail/soul%20%20/bleoonmhjmcnoflcfnlgfondalejbacp?hl=zh-CN)
+
+~~2022/04/16 已提交 Chrome 插件商店审核，能否通过审核尚未可知，目前手动更新的正确姿势为：~~
+
+## 从压缩包版本切换为商店版本的正确姿势为：
 
 1. 在插件设置的调试栏中导出配置
-2. 到浏览器中移除旧版插件
-3. 导入新版本插件到浏览器中
-4. 导入配置
+2. 到浏览器的 [插件管理](chrome://extensions) 中移除旧版插件
+3. 到 [Chrome 插件商店](https://chrome.google.com/webstore/detail/soul%20%20/bleoonmhjmcnoflcfnlgfondalejbacp?hl=zh-CN) 重新安装
+4. 重新导入配置
 
 
 ## 功能
@@ -49,16 +53,6 @@
 - 页面增强
   - 在[点击进入图墙模式]旁边增加了"在该版块默认打开图墙模式"复选框
 
-## 使用方法
-
-1. 你需要一个使用`Chromium`核心的浏览器 (只测试过最新版 Chrome / Edge / Brave)
-2. 下载[最新版本(那个zip压缩包)](https://github.com/FetchTheMoon/soul-plus-plus-chrome-extension/releases/latest)
-3. 在你的浏览器的`设置` - `扩展程序` - 右上角打开`开发者模式`
-4. 如果你使用的是 Edge 浏览器, 你现在可以直接把压缩包拖到设置页面里, 即可开始愉快的使用. 如果不是, 往下看
-5. 解压刚才下载的 zip 压缩包到某个文件夹里
-6. 点击左上角的`加载已解压的扩展程序`按钮, 选择存放已解压扩展的文件夹, 开始愉快的使用吧.
-
- 
 
 ## 编译
 
