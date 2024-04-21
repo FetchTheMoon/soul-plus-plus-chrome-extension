@@ -7,10 +7,12 @@
 ## 近况
 
 由于个人工作生活安排，暂时无法分出时间精力来维护插件，但此期间会对新增域名进行支持。
- 
+
 感谢各位使用拙作以及对在下的包容。
 
-2022/04/21 已在 Chrome 插件商店通过审核。[\[安装地址\]](https://chrome.google.com/webstore/detail/soul%20%20/bleoonmhjmcnoflcfnlgfondalejbacp?hl=zh-CN)
+2024/04/19 被 Google 以 `Providing functionality only on pornographic sites` 的[理由](https://raw.githubusercontent.com/FetchTheMoon/tuchuang/master/Snipaste_2024-04-20_21-10-03.png)下架了。
+
+~~2022/04/21 已在 Chrome 插件商店通过审核。[\[安装地址\]](https://chrome.google.com/webstore/detail/soul%20%20/bleoonmhjmcnoflcfnlgfondalejbacp?hl=zh-CN)~~
 
 ~~2022/04/16 已提交 Chrome 插件商店审核，能否通过审核尚未可知，目前手动更新的正确姿势为：~~
 
